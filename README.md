@@ -16,9 +16,10 @@ This class represents a tool to be used by the agent. Each tool needs a name (MU
 
 Misaba comes with 3 pre-built tools: a calculator, a datetime tool, and a tool to access gmail. See the quickstart guide or look in the tools folder for more information.
 #### 3. `ToolManager` Class: Used to manage all the tools for the agent
-Simply put the StandardTool objects into a list.
+Simply put the StandardTool objects into a list, and create a ToolManager object.
+
 ```python
-from Misaba import StandardTool, ToolManager
+from Misaba import agent, StandardTool, ToolManager
 from Misaba.tools import gmail_tool, calculate_tool, datetime_tool
 
 def my_function():
@@ -31,6 +32,21 @@ my_tool = StandardTool(
 
 all_tools = [my_tool, gmail_tool, calc_tool, datetime_tool]
 tool_manager = ToolManager(tools=all_tools)
+
+
+import ollama
+
+def llm_func(system: str, prompt: str) -> str:
+    return ollama.generate(model='qwen3', system=system, prompt=prompt).response
+
+my_agent = agent(llm=ollama_func, tool_manager=tool_manager)
+prompt = input("Enter your question: ")
+
+response = my_agent.generate(prompt, max_cycles=5, debug=True)
+print("\n--- DEBUG LOG ---")
+print(response.debug_log)
+print("\n--- FINAL ANSWER ---")
+print(response.response)
 ```
 ## Quickstart
 
