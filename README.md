@@ -7,7 +7,9 @@ The main reason I created this library to build agents was that I was having tro
 
 ## Complete Example
 One of the tests I ran included determining the number of minutes until an unspecified appointment in my inbox.
+
 <img width="556" height="165" alt="image" src="https://github.com/user-attachments/assets/ebbebc55-d1ef-461d-9886-b4e14290de9e" />
+
 With a prompt of just `How long until my appointment?`, a Qwen3:8b agent was able to infer that it needed to check my email and performed 3 seperate tool calls (1. Check email for appointments 2. Determine current time 3. Determine difference between current time and appointment time found in inbox), and give me the correct answer. Note that time calculations will be based on when the datetime tool is called by the agent, not necessarily when the agent was prompted or when it returned its final answer (may vary by 1-2 minutes).
 
 Here is the sample code (with some changes).
