@@ -25,6 +25,7 @@ from Misaba.tools import gmail_tool, calculate_tool, datetime_tool
 
 def my_function():
     return MY_NAME
+
 my_tool = StandardTool(
         name="my_new_tool",
         instruction="This tool returns the user's name, to make responses more personalized."
@@ -37,7 +38,7 @@ tool_manager = ToolManager(tools=all_tools)
 
 import ollama
 
-def llm_func(system: str, prompt: str) -> str:
+def ollama_func(system: str, prompt: str) -> str:
     return ollama.generate(model='qwen3', system=system, prompt=prompt).response
 
 my_agent = agent(llm=ollama_func, tool_manager=tool_manager)
