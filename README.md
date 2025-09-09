@@ -1,6 +1,9 @@
-# ReAct-Agent-v1
-A python module to easily run and implement ReAct style agents with any LLM.
+# mini-agent-py: A ReAct Agent Framework
 
-# Quickstart
+This project provides a lightweight and extensible Python library for the implementation of ReAct-style agents. The framework is designed to be LLM-agnostic and allows for the straightforward integration of custom tools.
 
-This package can work with any LLM, although the reason for building 
+## Quickstart
+
+Clone the repository into your current working directory by downloading it directly or with 
+
+'hi'
