@@ -6,7 +6,8 @@ This project provides a lightweight and extensible Python library for the implem
 
 #### 1. Clone the repository
 
-Download it from github directly or use ```git clone https://github.com/Saumitra404/Misaba.git```
+Download it from github directly or use 
+```git clone https://github.com/Saumitra404/Misaba.git```
 
 #### 2. Set up your LLM
 
@@ -27,7 +28,7 @@ def ollama_func(system: str, prompt: str) -> str:
 ```
 
 Or, if we were using an API:
-```
+```python
 import <API PACKAGE>
 def claude-func(system: str, prompt: str) -> str:
   ...
@@ -36,13 +37,17 @@ def claude-func(system: str, prompt: str) -> str:
 #### 3. Set up your tools
 
 The library comes with a ToolManager to handle all tool-related operations, and a few pre-built tools for you to use out of the box.
-```
+```python
 from Misaba import agent, ToolManager
 from Misaba.tools import calculate_tool, datetime_tool, gmail_tool
-1. Create a list of the tools you want the agent to have.
-# Note: The gmail_tool requires extra setup (see documentation).
+
+# 1. Create a list of the tools you want the agent to have.
 tools = [calculate_tool, datetime_tool, gmail_tool]
+
 # 2. Instantiate the ToolManager with your list of tools.
 tool_manager = ToolManager(tools=tools)
 ```
+
+##### Note that for the gmail tool to work, you will to install the required dependencies:
+```pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib```
 
