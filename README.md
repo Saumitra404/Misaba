@@ -18,9 +18,18 @@ Misaba comes with 3 pre-built tools: a calculator, a datetime tool, and a tool t
 #### 3. `ToolManager` Class: Used to manage all the tools for the agent
 Simply put the StandardTool objects into a list.
 ```python
-from Misaba.tools import StandardTool, ToolManager
+from Misaba import StandardTool, ToolManager
+from Misaba.tools import gmail_tool, calculate_tool, datetime_tool
 
-all_tools = [gmail_tool, calc_tool, datetime_tool]
+def my_function():
+    return MY_NAME
+my_tool = StandardTool(
+        name="my_new_tool",
+        instruction="This tool returns the user's name, to make responses more personalized."
+        execute_func=my_function
+        )
+
+all_tools = [my_tool, gmail_tool, calc_tool, datetime_tool]
 tool_manager = ToolManager(tools=all_tools)
 ```
 ## Quickstart
@@ -36,15 +45,15 @@ Here is an example with Ollama's qwen3 model. We create a wrapper function for t
 ```python
 import ollama
 # Make sure you have the model pulled locally: ollama pull qwen3
-`pip install ollama
-def llm-func(system: str, prompt: str) -> str:
-    return ollama.generate(model='qwen3', system=system, prompt=prompt).response`
+pip install ollama
+def llm_func(system: str, prompt: str) -> str:
+    return ollama.generate(model='qwen3', system=system, prompt=prompt).response
 ```
 
 Or, if we were using an API:
 ```python
 import <API PACKAGE>
-def claude-func(system: str, prompt: str) -> str:
+def claude_func(system: str, prompt: str) -> str:
   ...
 ```
 From testing I've found this to work well with small models like Qwen3:8b and Phi4.
