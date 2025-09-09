@@ -8,7 +8,7 @@ This project provides a lightweight and extensible Python library for the implem
 
 Download it from github directly or use ```git clone https://github.com/Saumitra404/Misaba.git```
 
-##### 2. Set up your LLM
+#### 2. Set up your LLM
 
 Here is an example with Ollama's qwen3 model. We create a wrapper function for the LLM which takes a system prompt and message as its parameters and returns the raw string output of the LLM's response:
 ```
@@ -33,7 +33,7 @@ def claude-func(system: str, prompt: str) -> str:
   ...
 ```
   
-###### 3. Set up your tools
+#### 3. Set up your tools
 
 The library comes with a ToolManager to handle all tool-related operations, and a few pre-built tools for you to use out of the box.
 ```
