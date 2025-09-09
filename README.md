@@ -51,3 +51,15 @@ tool_manager = ToolManager(tools=tools)
 ##### Note that for the gmail tool to work, you will to install the required dependencies:
 ```pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib```
 
+#### 4. Instantiate your agent and run it
+
+```python
+my_agent = agent(llm=ollama_func, tool_manager=tool_manager)
+prompt = input("Enter your question: ")
+
+response = my_agent.generate(prompt, max_cycles=5, debug=True)
+print("\n--- DEBUG LOG ---")
+print(response.debug_log)
+print("\n--- FINAL ANSWER ---")
+print(response.response)
+
