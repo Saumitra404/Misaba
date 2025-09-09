@@ -18,6 +18,7 @@ Misaba comes with 3 pre-built tools: a calculator, a datetime tool, and a tool t
 #### 3. `ToolManager` Class: Used to manage all the tools for the agent
 Simply put the StandardTool objects into a list, and create a ToolManager object.
 
+## Complete Example
 ```python
 from Misaba import agent, StandardTool, ToolManager
 from Misaba.tools import gmail_tool, calculate_tool, datetime_tool
