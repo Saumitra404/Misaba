@@ -11,7 +11,7 @@ Download it from github directly or use ```git clone https://github.com/Saumitra
 #### 2. Set up your LLM
 
 Here is an example with Ollama's qwen3 model. We create a wrapper function for the LLM which takes a system prompt and message as its parameters and returns the raw string output of the LLM's response:
-```
+```python
 import ollama
 # Make sure you have the model pulled locally: ollama pull qwen3
 def ollama_func(system: str, prompt: str) -> str:
